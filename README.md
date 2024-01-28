@@ -102,7 +102,7 @@ Deverá ser informado obrigatoriamente o campo Id gerado no passo anterior, conf
 ```
 Para simular o processo completo pela Durable Function Orchestration de aprovar o pedido para o status de entregue ou pendente ao cliente:
 
-POST OrderApproval
+POST /api/OrderApproval
 
 Deverá ser informado obrigatoriamente o cliente, endereço, produtos, preço do produto e a quantidade, conforme exemplo abaixo:
 ```
