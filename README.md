@@ -5,7 +5,11 @@ TECH-CHALLENGE Durable Orchestrations - Aprovação de pedidos desenvolvido na F
 É uma Azure Function no modelo Durable Functions Orchestration que permite orquestrar operações relacionadas a um processo de pedido (order). A solução foi desenvolvida utilizando a linguagem C# na versão 6.0 do .NET Framework e banco de dados Azure Table Storage.
 
 ## Requisitos:
-Disponibilizar endpoints para inserção de produtos, listagem de produtos, adicionar produtos ao carrinho de compras, aprovar ordem de compra, enviar ordem de compra para entrega e finalizar pedido durante o processo de simulação de aprovação pedidos.
+Disponibilizar endpoints para inserção de produtos, listagem de produtos, adicionar produtos ao carrinho de compras, aprovar ordem de compra, enviar ordem de compra para entrega e finalizar pedido durante o processo de simulação de aprovação pedido.
+
+Além disso, tem-se o processo completo criado pela Durable Functions Orchestration onde ocorre todos os processos citados anteriormente. 
+
+Para critério de simulação, apenas pedidos com valor menor que 1000 serão aprovados automaticamente.
 
 ## Critérios de aceite:
 Para uso da aplicação, o usuário poderá inserir produtos em:
@@ -96,7 +100,40 @@ Deverá ser informado obrigatoriamente o campo Id gerado no passo anterior, conf
     "Id": "c9dab7bb-1d46-436e-b58b-a5243643867e"
 }
 ```
+Para simular o processo completo pela Durable Function Orchestration de aprovar o pedido para o status de entregue ou pendente ao cliente:
 
+POST OrderApproval
+
+Deverá ser informado obrigatoriamente o cliente, endereço, produtos, preço do produto e a quantidade, conforme exemplo abaixo:
+```
+{
+    "Consumer": "bill@gmail.com",
+    "Address": "Rua abc, 123, Jd. Codelândia, São Paulo-SP",
+    "Items": [
+        {
+            "Product": {
+                "Name": "Product 1",
+                "Price": 10.00
+            },
+            "Quantity": 1
+        },
+        {
+            "Product": {
+                "Name": "Product 2",
+                "Price": 20.00
+            },
+            "Quantity": 2
+        },
+        {
+            "Product": {
+                "Name": "Product 3",
+                "Price": 30.00
+            },
+            "Quantity": 500
+        }
+    ]
+}
+```
 
 ## Execução:
 
