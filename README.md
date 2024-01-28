@@ -2,7 +2,7 @@
 TECH-CHALLENGE Durable Orchestrations - Aprovação de pedidos desenvolvido na Fase 2 da POSTECH Arquitetura de Sistemas .NET com Azure
 
 # Projeto Aprovação de Pedidos
-É uma API que permite simular o registro e acompanhamento de pedidos. A solução foi desenvolvida utilizando a linguagem C# na versão 6.0 do .NET Framework e Banco de Dados Azure Table Storage.
+É uma Azure Function no modelo Durable Functions Orchestration que permite orquestrar operações relacionadas a um processo de pedido (order). A solução foi desenvolvida utilizando a linguagem C# na versão 6.0 do .NET Framework e banco de dados Azure Table Storage.
 
 ## Requisitos:
 Disponibilizar endpoints para inserção de produtos, listagem de produtos, adicionar produtos ao carrinho de compras, aprovar ordem de compra, enviar ordem de compra para entrega e finalizar pedido durante o processo de simulação de aprovação pedidos.
@@ -102,7 +102,7 @@ Deverá ser informado obrigatoriamente o campo Id gerado no passo anterior, conf
 
 Para execução do projeto utilizando o VSCode, faz-se necessário estar logado na sua conta da Azure, após isso será solicitado a conexão a uma Storage Account, criar ou selecionar uma Storage Account, criar ou selecionar um grupo de recursos e selecionar uma localização.
 
-Para realizar testes com a API, pode-se utilizar o POSTMAN:
+Para realizar testes com a Azure Function, pode-se utilizar o POSTMAN:
 
 - POSTMAN (https://www.postman.com/)
 
@@ -110,7 +110,7 @@ Rodar os códigos conforme exemplos mencionados para cada endpoint disponibiliza
 
 ## Banco de dados:
 
-O Banco de dados utilizado na API é o Azure Table Storage onde as tabelas serão criadas conforme forem ocorrendo os processos de inserção e para verificar a string de conexão, basta acessar o arquivo "DurableFunctionProject/local.settings.json" e verá que foi adicionado no campo "AzureWebJobsStorage" após rodar o projeto de simulação.
+O Banco de dados utilizado na Azure Function Orchestration é o Azure Table Storage, na qual as tabelas serão criadas conforme forem ocorrendo os processos de inserção e para verificar a string de conexão, basta acessar o arquivo "DurableFunctionProject/local.settings.json" e podera observar que foi adicionado no campo "AzureWebJobsStorage" após rodar o projeto de simulação.
 
 
 ## Links úteis
